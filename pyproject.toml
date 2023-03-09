@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "poetry new packege-name"
+version = "0.1.0"
+description = ""
+authors = ["Sergey-Bocharnikov <prokaznikov.s@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "poetry new packege_name"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.28.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
