@@ -34,10 +34,14 @@ def get_print(filename):
         s_1 = items['date']
         s_2 = items['description']
 
-        s_3 = items['from'].split()
-        s_3_int = s_3.pop(-1)
-        s_3_int = f"{s_3_int[:4]} {s_3_int[4:6]}** **** {s_3_int[-4:]}"
-        s_3_info = " ".join(s_3)
+        if "from" in items:
+            s_3 = items['from'].split()
+            s_3_int = s_3.pop(-1)
+            s_3_int = f"{s_3_int[:4]} {s_3_int[4:6]}** **** {s_3_int[-4:]}"
+            s_3_info = " ".join(s_3)
+        else:
+            s_3_int = ""
+            s_3_info = ["СКРЫТО"]
 
         s_4 = f"**{items['to'][-4:]}"
 
@@ -47,6 +51,6 @@ def get_print(filename):
         file_str = f"{s_1[8:10]}.{s_1[5:7]}.{s_1[0:4]} {s_2}\n{s_3_info} {s_3_int} -> Счет {s_4}\n{s_5} {s_6}"
 
         text_file_print.append(file_str)
-
-    for item in text_file_print:
-        print(f"{item}\n")
+    return text_file_print
+    #for item in text_file_print:
+        #print(f"{item}\n")

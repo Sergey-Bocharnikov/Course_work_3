@@ -12,4 +12,7 @@ FILTERED_EMPTY_FROM = True
 file_executed = utils.get_executed(pj_file, FILTERED_EMPTY_FROM)
 file_sort_date = utils.sort_executed_of_date(file_executed, COUNT_LAST_VALUES)
 
-utils.get_print(file_sort_date)
+file_print = utils.get_print(file_sort_date)
+
+for item in file_print:
+    print(f"{item}\n")
