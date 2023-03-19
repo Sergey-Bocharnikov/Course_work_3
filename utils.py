@@ -9,13 +9,13 @@ def open_json_file(filename):
     return data
 
 
-def get_executed(filename):
-    """Выводим список выполненных "EXECUTED" операций"""
-    executed_file = []
-    for items in filename:
-        if items["state"] == "EXECUTED":
-            executed_file.append(items)
-    return executed_file
+def get_executed(data, filtered_empty_from=False):
+    """Выводим список выполненных "EXECUTED" операций;
+    оставляем операции в которых есть 'from' """
+    data = [x for x in data if "state" in x and x["state"] == 'EXECUTED']
+    if filtered_empty_from:
+        data = [x for x in data if "from" in x]
+    return data
 
 
 def sort_executed_of_date(filename, count_last_values):
